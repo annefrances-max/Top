@@ -149,22 +149,29 @@ public class TOPKFI{
     }
     return count;
     }
+
+  public static class Itemset {
+    private List<Integer> items;
+    private int support;
   
-  /*public static class Itemset {
-        private final Map<Integer, Integer> items;
-        private final int support;
+  public Itemset(List<Integer> items, int support) {
+        this.items = items;
+        this.support = support;
+    }
 
-        public Itemset(int item, int support) {
-               this.items = new HashMap<>();
-               this.items.put(item, 1);
-               this.support = support;
-         }
+    public List<Integer> getItems() {
+        return items;
+    }
 
-         public Itemset(Map<Integer, Integer> items, int support) {
-              this.items = items;
-              this.support = support;
-         }
+    public int getSupport() {
+        return support;
+    }
+    
+    public Itemset add(int item) {
+    List<Integer> newItems = new ArrayList<>(items);
+    newItems.add(item);
+    return new Itemset(newItems, support);
+    }
+    }
+}
 
-         public Map<Integer, Integer> getItems() {
-            return items;
-         }
